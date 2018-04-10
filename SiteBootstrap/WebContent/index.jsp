@@ -31,6 +31,7 @@
 		Nome:
 		<%=u.getNome()%>
 	</h3>
+	<a href="sair.jsp">Sair</a>
 	<div class="container-fluid"></div>
 
 	<div class="container">
