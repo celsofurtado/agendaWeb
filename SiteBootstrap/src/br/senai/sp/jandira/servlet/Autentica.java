@@ -17,34 +17,36 @@ import br.senai.sp.jandira.model.Usuario;
 public class Autentica extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Autentica() {
-        super();
-    }
+	public Autentica() {
+		super();
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String email = request.getParameter("txtUserName");
 		String senha = request.getParameter("txtPassword");
-		
+
 		HttpSession session = null;
-		
+
 		AutenticaDAO autentica = new AutenticaDAO();
-		
+
 		Usuario usuario = new Usuario();
-		
+
 		usuario = autentica.autentica(email, senha);
-		
-		if (usuario != null){
+
+		if (usuario != null) {
 			session = request.getSession(true);
 			session.setAttribute("usuario", usuario);
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
-		
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 

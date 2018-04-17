@@ -19,7 +19,7 @@
 				<div class="col-md-8 col-md-offset-2">
 					<h1>Login Form</h1>
 					<div class="well">
-						<form method="get" action="Autentica">
+						<form method="post" action="Autentica">
 							<img src="images/user128.png" class="img-circle" alt="User" />
 							<div class="form-group">
 								<label for="txtUserName">Usuário:</label>
