@@ -4,7 +4,6 @@
 
 <%
 	Usuario u = new Usuario();
-	//u = (Usuario) request.getAttribute("usuario");
 	u = (Usuario) session.getAttribute("usuario");
 
 	if (u == null) {
