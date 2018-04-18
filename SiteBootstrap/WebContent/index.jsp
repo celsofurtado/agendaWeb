@@ -27,42 +27,80 @@
 </head>
 
 <body>
-	<h3>
-		Nome:
-		<%=u.getNome()%>
-	</h3>
-	<a href="sair.jsp">Sair</a>
-	<div class="container-fluid"></div>
 
-	<div class="container">
-		<div class="row">
-			
-			<table>
-			
-				<%
-				
-					ListaContatos listaContatos = new ListaContatos();
-				
-				%>
-			
-			</table>
-			
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<h2>Conteúdo de título</h2>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-					Morbi gravida libero nec velit. Morbi scelerisque luctus velit.
-					Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.
-					Proin mattis lacinia justo. Vestibulum facilisis auctor urna.
-					Aliquam in lorem sit amet leo accumsan</p>
+
+	<div class="container"
+		style="box-shadow: 3px 3px 5px gray; border-radius: 10px; border: 1px dotted">
+
+		<nav class="navbar navbar-default"
+			style="margin-top: 10px; padding: 5px; background-color: #4682b4">
+			<div class="container-fluid">
+				<div class="navbar-header" style="font-size: 30px;">
+					<a href="index.jsp"> <img src="images/contatos64.png"
+						style="margin-right: 10px"><strong style="color: white;">CONTATOS</strong>
+					</a>
+				</div>
 			</div>
-		</div>
-	</div>
+		</nav>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
+		<div class="row">
+			<div class="col-md-3">
+
+				<!-- **** PAINEL COM OS DADOS DO USUÁRIO LOGADO -->
+				<div class="panel panel-warning">
+					<div class="panel-heading">
+						<img src="images/user24.png" style="margin-right: 10px;">Usuário
+					</div>
+					<div class="panel-body">
+						<p>
+							<strong>Usuário:</strong> <a href="editarusuario.jsp"> <%= u.getNome() %>
+							</a>
+						</p>
+						<p>
+							<strong>Dt. Nasc.:</strong> 15/05/1990
+						</p>
+						<p>
+							<strong>Cidade:</strong> Itapevi
+						</p>
+						<p>
+							<strong>Data:</strong> 18/04/2018
+						</p>
+						<a href="logoff.jsp"><img src="images/logout16.png"
+							style="margin-right: 10px;">Efetuar Logout</a>
+					</div>
+				</div>
+				
+				<!-- **** PAINEL COM O MENU DE OPÇÕES -->
+				<div class="panel panel-success">
+					<table border="1">
+					<%
+					for (int x = 0; x < 10; x++){
+						%>
+						<tr>
+							<td>Teste</td>
+							<td>Teste</td>
+							<td>Teste</td>
+						</tr>
+						<% 
+					}
+					%>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
 
