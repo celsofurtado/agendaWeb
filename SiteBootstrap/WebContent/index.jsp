@@ -1,3 +1,4 @@
+<%@page import="br.senai.sp.jandira.servlet.ListaContatos"%>
 <%@page import="br.senai.sp.jandira.model.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -35,14 +36,17 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-				<h2>Conteúdo de título</h2>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-					Morbi gravida libero nec velit. Morbi scelerisque luctus velit.
-					Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.
-					Proin mattis lacinia justo. Vestibulum facilisis auctor urna.
-					Aliquam in lorem sit amet leo accumsan</p>
-			</div>
+			
+			<table>
+			
+				<%
+				
+					ListaContatos listaContatos = new ListaContatos();
+				
+				%>
+			
+			</table>
+			
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<h2>Conteúdo de título</h2>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
