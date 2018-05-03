@@ -27,7 +27,6 @@ public class ListaContatos extends HttpServlet {
 		ArrayList<Contato> contatos = new ArrayList<>();
 		contatos = dao.getContatos();
 		request.setAttribute("contatos", contatos);
-		
 	}
 
 }

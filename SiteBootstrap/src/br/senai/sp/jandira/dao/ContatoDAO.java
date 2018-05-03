@@ -38,7 +38,11 @@ public class ContatoDAO {
 				contato.setEmail(rs.getString("email"));
 				contato.setTelefone(rs.getString("telefone"));
 				contato.setCelular(rs.getString("celular"));
-				contato.setEndereco(rs.getString("endereco"));
+				contato.setLogradouro(rs.getString("logradouro"));
+				contato.setBairro(rs.getString("bairro"));
+				contato.setCidade(rs.getString("cidade"));
+				contato.setCep(rs.getString("cep"));
+				contato.setEstado(rs.getString("estado"));
 				contato.setDtNasc(rs.getString("dtNasc"));
 				contato.setSexo(rs.getString("sexo"));
 				contatos.add(contato);
@@ -48,9 +52,41 @@ public class ContatoDAO {
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
-		
 		return contatos;
+	}
+	
+	public void gravar(){
+		
+		String sql = "INSERT INTO contatos (nome, dtNasc, email, "
+				+ "logradouro, bairro, cidade, "
+				+ "estado, cep, telefone, "
+				+ "celular, sexo) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setString(1, contato.getNome());
+			stm.setString(2, contato.getDtNasc());
+			stm.setString(3, contato.getEmail());
+			stm.setString(4, contato.getLogradouro());
+			stm.setString(5, contato.getBairro());
+			stm.setString(6, contato.getCidade());
+			stm.setString(7, contato.getEstado());
+			stm.setString(8, contato.getCep());
+			stm.setString(9, contato.getTelefone());
+			stm.setString(10, contato.getCelular());
+			stm.setString(11, contato.getSexo());
+			System.out.println("Gravandoooooo...");
+			stm.execute();
+			
+			Conexao.fecharConexao();
+			
+		} catch (Exception erroBanco){
+			System.out.println(erroBanco.getMessage());
+			erroBanco.printStackTrace();
+		}
 	}
 
 }
