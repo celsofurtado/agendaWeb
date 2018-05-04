@@ -106,7 +106,6 @@ public class ContatoDAO {
 			stm.setString(9, contato.getTelefone());
 			stm.setString(10, contato.getCelular());
 			stm.setString(11, contato.getSexo());
-			System.out.println("Gravandoooooo...");
 			stm.execute();
 
 			Conexao.fecharConexao();
@@ -138,7 +137,6 @@ public class ContatoDAO {
 			stm.setString(10, contato.getCelular());
 			stm.setString(11, contato.getSexo());
 			stm.setInt(12, contato.getId());
-			System.out.println("Atualizandoooo...");
 			stm.execute();
 
 			Conexao.fecharConexao();
@@ -147,6 +145,24 @@ public class ContatoDAO {
 			System.out.println(erroBanco.getMessage());
 			erroBanco.printStackTrace();
 		}
+	}
+	
+	public void excluir(int id){
+		
+		String sql = "DELETE FROM contatos WHERE id = ?";
+		
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setInt(1, id);
+			stm.execute();
+
+			Conexao.fecharConexao();
+
+		} catch (Exception erroBanco) {
+			System.out.println(erroBanco.getMessage());
+			erroBanco.printStackTrace();
+		}
+		
 	}
 
 }

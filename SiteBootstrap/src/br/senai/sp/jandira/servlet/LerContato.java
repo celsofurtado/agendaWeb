@@ -25,6 +25,17 @@ public class LerContato extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		String operacao = request.getParameter("operacao");
+		String page = null;
+		
+		if (operacao.equals("editar")){
+			page = "editar.jsp";
+		} else {
+			page = "excluir.jsp";
+		}
+		
+		System.out.println();
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		Contato contato = new Contato();
 		
@@ -34,7 +45,7 @@ public class LerContato extends HttpServlet {
 		
 		request.setAttribute("contato", contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
 		
 	}

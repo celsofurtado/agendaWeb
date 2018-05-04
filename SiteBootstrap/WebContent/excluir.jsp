@@ -26,14 +26,14 @@
 		</div>
 
 		<div class="col-md-9">
-			<div class="panel panel-warning">
+			<div class="panel panel-danger">
 				<div class="panel-heading">
-					<img src="images/edit_user24.png" style="margin-right: 10px; width: 24px; height: 24px;">Editar Contato
+					<img src="images/delete_user32.png" style="margin-right: 10px; width: 24px; height: 24px;">Excluir Contato
 				</div>
 				<div class="panel-body" style="background-color: #fafafa;">
 
 					<!-- Formulário de cadastro -->
-					<form method="post" action="EditarContato">
+					<form method="post" action="ExcluirContato">
 						<fieldset>
 							<legend>Dados gerais:</legend>
 							<!-- LINHA 1 DO FORM -->
@@ -127,7 +127,7 @@
 						<!-- LINHA 6 DO FORM -->
 						<div class="form-row">
 							<div class="form-group col-md-12">
-								<input type="submit" value="Atualizar dados do contato"	class="btn btn-success">
+								<input type="submit" value="Excluir contato"	class="btn btn-danger">
 								<a href="index.jsp" class="btn btn-danger">Cancelar atualização</a>
 							</div>
 						</div>

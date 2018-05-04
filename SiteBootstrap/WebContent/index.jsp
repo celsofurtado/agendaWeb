@@ -50,10 +50,10 @@
 						
 						<tr>
 							<td><%= con.getId() %></td>
-							<td><a href="LerContato?id=<%= con.getId()%>"><%= con.getNome() %></a></td>
+							<td><a href="LerContato?id=<%= con.getId()%>&operacao=editar"><%= con.getNome() %></a></td>
 							<td><%= con.getEmail() %></td>
-							<td><a href="LerContato?id=<%= con.getId()%>"><img src="images/edit_user16.png"></a></td>
-							<td><img src="images/delete16.png"></td>
+							<td><a href="LerContato?id=<%= con.getId()%>&operacao=editar"><img src="images/edit_user16.png" alt="Editar"></a></td>
+							<td><a href="LerContato?id=<%= con.getId()%>&operacao=excluir"><img src="images/delete16.png" alt="Excluir"></a></td>
 						</tr>
 						
 						<%
