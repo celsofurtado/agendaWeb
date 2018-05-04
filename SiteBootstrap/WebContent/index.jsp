@@ -31,7 +31,7 @@
 
 		<div class="col-md-9">
 			<div class="panel panel-success">
-				<div class="panel-heading">Meus contatos</div>
+				<div class="panel-heading"><img src="images/lista_contatos24.png" style="margin-right: 10px;">Meus contatos</div>
 				<div class="panel-body">
 					<table class="table table-hover">
 						<thead>
@@ -50,9 +50,9 @@
 						
 						<tr>
 							<td><%= con.getId() %></td>
-							<td><a href="editar.jsp?id=<%= con.getId()%>"><%= con.getNome() %></a></td>
+							<td><a href="LerContato?id=<%= con.getId()%>"><%= con.getNome() %></a></td>
 							<td><%= con.getEmail() %></td>
-							<td><img src="images/edit_user16.png"></td>
+							<td><a href="LerContato?id=<%= con.getId()%>"><img src="images/edit_user16.png"></a></td>
 							<td><img src="images/delete16.png"></td>
 						</tr>
 						

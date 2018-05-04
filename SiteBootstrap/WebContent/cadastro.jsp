@@ -19,18 +19,14 @@
 		<div class="col-md-9">
 			<div class="panel panel-success">
 				<div class="panel-heading"><img src="images/userAdd24.png" style="margin-right: 10px;">Cadastro de novo contato</div>
-				<div class="panel-body">
+				<div class="panel-body" style="background-color: #fafafa;">
 					
 					<!-- Formulário de cadastro -->
 					<form method="post" action="GravarContato">
 						<fieldset><legend>Dados gerais:</legend>
 						<!-- LINHA 1 DO FORM -->
-						<div class="form-row">
-							<div class="form-group col-md-2">
-								<label for="txtId">ID:</label>
-								<input type="text" class="form-control" name="txtId">
-							</div>
-							<div class="form-group col-md-4">
+						<div class="form-row">							
+							<div class="form-group col-md-6">
 								<label for="txtNome">Nome:</label>
 								<input type="text" class="form-control" name="txtNome" placeholder="Digite o nome...">
 							</div>
