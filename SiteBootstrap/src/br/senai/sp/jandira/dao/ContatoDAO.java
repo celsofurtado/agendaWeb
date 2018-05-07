@@ -8,7 +8,7 @@ import br.senai.sp.jandira.jdbc.Conexao;
 import br.senai.sp.jandira.model.Contato;
 
 public class ContatoDAO {
-
+	
 	private Contato contato;
 	PreparedStatement stm;
 	ResultSet rs;
@@ -52,14 +52,20 @@ public class ContatoDAO {
 		this.contato = contato;
 	}
 
-	public ArrayList<Contato> getContatos() {
+	public ArrayList<Contato> getContatos(int limit, int pagina) {
+		
+		int offset = (pagina * limit) - limit;
+		
 		ArrayList<Contato> contatos = new ArrayList<>();
 
-		String sql = "SELECT * FROM contatos ORDER BY nome ASC";
+		String sql = "SELECT * FROM contatos ORDER BY nome ASC LIMIT ? OFFSET ?";
 		stm = null;
 
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setInt(1, limit);
+			stm.setInt(2, offset);
+			
 			rs = stm.executeQuery();
 
 			while (rs.next()) {
@@ -86,6 +92,37 @@ public class ContatoDAO {
 			e.printStackTrace();
 		}
 		return contatos;
+	}
+	
+	public int getPaginas(){
+		int registros = 0;
+		int paginas = 0;
+		
+		String sql = "SELECT COUNT(id) as totalRegistros FROM contatos";
+		
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			
+			rs = stm.executeQuery();
+
+			rs.next();
+			
+			registros = rs.getInt("totalRegistros");
+			
+			if (registros % 12 == 0){
+				paginas = registros / 12;
+			} else {
+				paginas = Math.abs(registros / 12) + 1;
+			}
+
+			Conexao.fecharConexao();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return paginas;
 	}
 
 	public void gravar() {

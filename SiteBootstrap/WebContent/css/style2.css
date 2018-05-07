@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
 body {
 	background-color: #f2f2f2;
+}
+
+header strong {
+	color: #FFFFE0;
+	font-family: 'Luckiest Guy', cursive;
+	font-size: 30px;
+	margin-left: 10px;
+	margin-top: 5px;
+	font-weight: normal;
 }

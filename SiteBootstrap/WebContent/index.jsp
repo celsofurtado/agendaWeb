@@ -5,16 +5,24 @@
 <%@page import="br.senai.sp.jandira.model.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-	
-	<%
-	
+
+
+<%
 	ArrayList<Contato> listaContatos = new ArrayList();
+	int pagina = 0;
+	
+	if (request.getParameter("pag").equals(null)){
+		pagina = 0;
+	} else {
+		pagina = Integer.parseInt(request.getParameter("pag"));
+	}
 	
 	ContatoDAO c = new ContatoDAO();
-	listaContatos = c.getContatos();
-
-	%>
+	listaContatos = c.getContatos(12, pagina);
+	
+	int paginas = c.getPaginas();
+	
+%>
 
 <%@ include file="cabecalho.jsp"%>
 <div class="container">
@@ -22,17 +30,21 @@
 		<div class="col-md-3">
 
 			<!-- **** PAINEL COM OS DADOS DO USUÁRIO LOGADO -->
-			<%@ include file="painel_usuario.jsp" %>
+			<%@ include file="painel_usuario.jsp"%>
 
 			<!-- **** PAINEL COM O MENU DE OPÇÕES -->
-			<%@ include file="menu_opcoes.jsp" %>
+			<%@ include file="menu_opcoes.jsp"%>
 
 		</div>
 
 		<div class="col-md-9">
 			<div class="panel panel-success">
-				<div class="panel-heading"><img src="images/lista_contatos24.png" style="margin-right: 10px;">Meus contatos</div>
+				<div class="panel-heading">
+					<img src="images/lista_contatos24.png" style="margin-right: 10px;">Meus
+					contatos
+				</div>
 				<div class="panel-body">
+					<p>Página: <%= pagina %> </p>
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -43,24 +55,36 @@
 								<th></th>
 							</tr>
 						</thead>
-						
+
 						<%
-							for(Contato con : listaContatos){								
+							for (Contato con : listaContatos) {
 						%>
-						
+
 						<tr>
-							<td><%= con.getId() %></td>
-							<td><a href="LerContato?id=<%= con.getId()%>&operacao=editar"><%= con.getNome() %></a></td>
-							<td><%= con.getEmail() %></td>
-							<td><a href="LerContato?id=<%= con.getId()%>&operacao=editar"><img src="images/edit_user16.png" alt="Editar"></a></td>
-							<td><a href="LerContato?id=<%= con.getId()%>&operacao=excluir"><img src="images/delete16.png" alt="Excluir"></a></td>
+							<td width="10%"><%=con.getId()%></td>
+							<td width="40%"><a
+								href="LerContato?id=<%=con.getId()%>&operacao=editar"><%=con.getNome()%></a></td>
+							<td width="30%"><%=con.getEmail()%></td>
+							<td width="10%"><a
+								href="LerContato?id=<%=con.getId()%>&operacao=editar"><img
+									src="images/edit_user16.png" alt="Editar"></a></td>
+							<td width="10%"><a
+								href="LerContato?id=<%=con.getId()%>&operacao=excluir"><img
+									src="images/delete16.png" alt="Excluir"></a></td>
 						</tr>
-						
+
 						<%
 							}
 						%>
-						
+
 					</table>
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<% for (int pag = 1; pag <= paginas; pag++) { %>
+								<li><a <%=pag == pagina ? "style=\"background-color: #B0E0E6;\"" : "" %> href="index.jsp?pag=<%=pag%>"><%=pag%></a></li>
+							<% } %>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
@@ -69,7 +93,7 @@
 
 </div>
 
-<%@ include file = "rodape.jsp" %>
+<%@ include file="rodape.jsp"%>
 
 </body>
 </html>
