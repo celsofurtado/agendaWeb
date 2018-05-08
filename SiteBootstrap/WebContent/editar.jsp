@@ -128,7 +128,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<input type="submit" value="Atualizar dados do contato"	class="btn btn-success">
-								<a href="index.jsp" class="btn btn-danger">Cancelar atualização</a>
+								<a href="index.jsp?pag=<%=request.getParameter("pag") %>" class="btn btn-info">Cancelar atualização</a>
 							</div>
 						</div>
 					</form>

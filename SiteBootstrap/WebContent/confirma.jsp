@@ -34,7 +34,7 @@
 
 				<div class="alert alert-success">
 					<p style="font-size: 18px; font-weight: bold;"><img src="images/ok128.png" style="width: 64px; height: 64px;">Contato excluído com sucesso!!</p>
-					<p style="margin-left: 10px;"><a href="index.jsp">Voltar a Home Page</a></p>
+					<p style="margin-left: 10px;"><a href="index.jsp?pag=1">Voltar a Home Page</a></p>
 				</div>
 
 				</div>

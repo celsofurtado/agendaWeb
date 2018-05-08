@@ -63,13 +63,13 @@
 						<tr>
 							<td width="10%"><%=con.getId()%></td>
 							<td width="40%"><a
-								href="LerContato?id=<%=con.getId()%>&operacao=editar"><%=con.getNome()%></a></td>
+								href="LerContato?id=<%=con.getId()%>&operacao=editar&pag=<%=pagina%>"><%=con.getNome()%></a></td>
 							<td width="30%"><%=con.getEmail()%></td>
 							<td width="10%"><a
-								href="LerContato?id=<%=con.getId()%>&operacao=editar"><img
+								href="LerContato?id=<%=con.getId()%>&operacao=editar&pag=<%=pagina%>"><img
 									src="images/edit_user16.png" alt="Editar"></a></td>
 							<td width="10%"><a
-								href="LerContato?id=<%=con.getId()%>&operacao=excluir"><img
+								href="LerContato?id=<%=con.getId()%>&operacao=excluir&pag=<%=pagina%>"><img
 									src="images/delete16.png" alt="Excluir"></a></td>
 						</tr>
 
