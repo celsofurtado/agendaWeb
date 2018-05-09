@@ -25,10 +25,12 @@ public class GravarContato extends HttpServlet {
 		
 		boolean gravou = false;
 		
+		int pag = Integer.parseInt(request.getParameter("pag"));
+		
 		Contato c = new Contato();
 		c.setNome(request.getParameter("txtNome"));
 		c.setEmail(request.getParameter("txtEmail"));
-		c.setDtNasc(request.getParameter("txtDtNascss"));
+		c.setDtNasc(request.getParameter("txtDtNasc"));
 		c.setBairro(request.getParameter("txtBairro"));
 		c.setCidade(request.getParameter("txtCidade"));
 		c.setLogradouro(request.getParameter("txtLogradouro"));
@@ -43,7 +45,7 @@ public class GravarContato extends HttpServlet {
 		
 		contatoDAO.gravar();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp?pag=" + pag);
 		rd.forward(request, response);
 		
 	}

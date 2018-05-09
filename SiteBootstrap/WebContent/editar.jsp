@@ -33,7 +33,7 @@
 				<div class="panel-body" style="background-color: #fafafa;">
 
 					<!-- Formulário de cadastro -->
-					<form method="post" action="EditarContato">
+					<form method="post" action="EditarContato?pag=<%=request.getParameter("pag")%>">
 						<fieldset>
 							<legend>Dados gerais:</legend>
 							<!-- LINHA 1 DO FORM -->
@@ -51,7 +51,7 @@
 								<div class="form-group col-md-3">
 									<label for="txtDtNasc">Dt. Nasc.:</label> <input type="date"
 										class="form-control" name="txtDtNasc"
-										placeholder="Data de nascimento...">
+										value="<%=contato.getDtNasc()%>">
 								</div>
 								<div class="form-group col-md-3">
 									<label for="rdSexo">Sexo:</label> <select name="cbSexo"

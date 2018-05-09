@@ -25,7 +25,7 @@ public class ListaContatos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ContatoDAO dao = new ContatoDAO();
 		ArrayList<Contato> contatos = new ArrayList<>();
-		contatos = dao.getContatos();
+		//contatos = dao.getContatos();
 		request.setAttribute("contatos", contatos);
 	}
 

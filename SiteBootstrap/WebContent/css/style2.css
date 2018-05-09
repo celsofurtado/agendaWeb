@@ -12,3 +12,7 @@ header strong {
 	margin-top: 5px;
 	font-weight: normal;
 }
+
+.error_message {
+	color: red;
+}

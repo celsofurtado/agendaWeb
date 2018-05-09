@@ -22,6 +22,8 @@ public class EditarContato extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int pag = Integer.parseInt(request.getParameter("pag"));
+		
 		Contato c = new Contato();
 		c.setId(Integer.parseInt(request.getParameter("txtId")));
 		c.setNome(request.getParameter("txtNome"));
@@ -41,7 +43,7 @@ public class EditarContato extends HttpServlet {
 		
 		contatoDAO.atualizar();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp?pag=" + pag);
 		rd.forward(request, response);
 		
 	}

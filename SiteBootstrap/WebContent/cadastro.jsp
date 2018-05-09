@@ -22,12 +22,12 @@
 				<div class="panel-body" style="background-color: #fafafa;">
 					
 					<!-- Formulário de cadastro -->
-					<form method="post" action="GravarContato">
+					<form method="post" action="GravarContato?pag=<%=request.getParameter("pag")%>" onsubmit="return validate()" name="frmContato">
 						<fieldset><legend>Dados gerais:</legend>
 						<!-- LINHA 1 DO FORM -->
 						<div class="form-row">							
 							<div class="form-group col-md-6">
-								<label for="txtNome">Nome:</label>
+								<label for="txtNome">Nome:</label><span id="erro_nome" class="error_message"></span>
 								<input type="text" class="form-control" name="txtNome" placeholder="Digite o nome...">
 							</div>
 							<div class="form-group col-md-3">
@@ -48,7 +48,7 @@
 						<fieldset><legend>Endereço do contato:</legend>
 						<div class="form-row">
 							<div class="form-group col-md-7">
-								<label for="txtLogradouro">Logradouro:</label>
+								<label for="txtLogradouro">Logradouro:</label><span id="erro_logradouro" class="error_message"></span>
 								<input type="text" class="form-control" name="txtLogradouro" placeholder="Rua, Av., Trav...">
 							</div>
 							<div class="form-group col-md-5">
@@ -126,3 +126,36 @@
 <%
 	}
 %>
+
+<script type="text/javascript">
+
+	//PEGANDO TODOS OS OBJETOS TEXT
+	var nome = document.forms["frmContato"]["txtNome"];
+	var logradouro = document.forms["frmContato"]["txtLogradouro"];
+	
+	//PEGANDO TODOS OS ELEMENTOS QUE VÃO EXIBIR A MSG DE ERRO
+	var erro_nome = document.getElementById("erro_nome");
+	var erro_logradouro = document.getElementById("erro_logradouro");
+	
+	function validate(){
+		if (nome.value == ""){
+			nome.style.border = "1px solid red";
+			erro_nome.textContent = " *";
+			nome.focus();
+			return false;
+		}
+		
+		if (logradouro.value == ""){
+			logradouro.style.border = "1px solid red";
+			erro_logradouro.textContent = "*";
+			logradouro.focus();
+			return false;
+		}
+	}
+
+</script>
+
+
+
+
+
