@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<h1>Login Form</h1>
+					<h1>iContatos</h1>
 					<div class="well">
 						<form method="post" action="Autentica">
 							<img src="images/user128.png" class="img-circle" alt="User" />
@@ -30,7 +30,7 @@
 								<input type="password" class="form-control" name="txtPassword" >
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox">Lembar-me</label>
+								<a href="novo_usuario.jsp">Quero me cadastrar</a>
 							</div>
 							<button type="submit" style="position:relative;top:5px;" class="btn btn-success">Login</button>
 						</form>

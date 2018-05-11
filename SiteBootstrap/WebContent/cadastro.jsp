@@ -27,12 +27,13 @@
 						<!-- LINHA 1 DO FORM -->
 						<div class="form-row">							
 							<div class="form-group col-md-6">
+								<input type="text" name="txtIdUsuario" value="<%=u.getId() %>" hidden="true">
 								<label for="txtNome">Nome:</label><span id="erro_nome" class="error_message"></span>
-								<input type="text" class="form-control" name="txtNome" placeholder="Digite o nome...">
+								<input type="text" class="form-control" name="txtNome" placeholder="Digite o nome..." required="required">
 							</div>
 							<div class="form-group col-md-3">
 								<label for="txtDtNasc">Dt. Nasc.:</label>
-								<input type="date" class="form-control" name="txtDtNasc" placeholder="Data de nascimento...">
+								<input type="date" class="form-control" name="txtDtNasc" placeholder="Data de nascimento..." required="required">
 							</div>
 							<div class="form-group col-md-3">
 								<label for="rdSexo">Sexo:</label>
@@ -53,7 +54,7 @@
 							</div>
 							<div class="form-group col-md-5">
 								<label for="txtBairro">Bairro:</label>
-								<input type="text" class="form-control" name="txtBairro" placeholder="Bairro...">
+								<input type="text" class="form-control" name="txtBairro" placeholder="Bairro..." required="required">
 							</div>							
 						</div>	
 						<!-- LINHA 3 DO FORM -->
@@ -120,41 +121,16 @@
 
 <%@ include file = "rodape.jsp" %>
 
+<script type="text/javascript" src="js/valida.js">
+
+</script>
+
 </body>
 </html>
 
 <%
 	}
 %>
-
-<script type="text/javascript">
-
-	//PEGANDO TODOS OS OBJETOS TEXT
-	var nome = document.forms["frmContato"]["txtNome"];
-	var logradouro = document.forms["frmContato"]["txtLogradouro"];
-	
-	//PEGANDO TODOS OS ELEMENTOS QUE VÃO EXIBIR A MSG DE ERRO
-	var erro_nome = document.getElementById("erro_nome");
-	var erro_logradouro = document.getElementById("erro_logradouro");
-	
-	function validate(){
-		if (nome.value == ""){
-			nome.style.border = "1px solid red";
-			erro_nome.textContent = " *";
-			nome.focus();
-			return false;
-		}
-		
-		if (logradouro.value == ""){
-			logradouro.style.border = "1px solid red";
-			erro_logradouro.textContent = "*";
-			logradouro.focus();
-			return false;
-		}
-	}
-
-</script>
-
 
 
 

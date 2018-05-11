@@ -6,6 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@ include file="cabecalho.jsp"%>
 
 <%
 	ArrayList<Contato> listaContatos = new ArrayList();
@@ -18,13 +19,13 @@
 	}
 	
 	ContatoDAO c = new ContatoDAO();
-	listaContatos = c.getContatos(12, pagina);
+	listaContatos = c.getContatos(12, pagina, u.getId());
 	
-	int paginas = c.getPaginas();
+	int paginas = c.getPaginas(u.getId());
 	
 %>
 
-<%@ include file="cabecalho.jsp"%>
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">

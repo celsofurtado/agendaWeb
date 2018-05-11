@@ -28,7 +28,7 @@ public class EditarContato extends HttpServlet {
 		c.setId(Integer.parseInt(request.getParameter("txtId")));
 		c.setNome(request.getParameter("txtNome"));
 		c.setEmail(request.getParameter("txtEmail"));
-		c.setDtNasc(request.getParameter("txtDtNascss"));
+		c.setDtNasc(request.getParameter("txtDtNasc"));
 		c.setBairro(request.getParameter("txtBairro"));
 		c.setCidade(request.getParameter("txtCidade"));
 		c.setLogradouro(request.getParameter("txtLogradouro"));

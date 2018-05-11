@@ -39,6 +39,7 @@ public class GravarContato extends HttpServlet {
 		c.setTelefone(request.getParameter("txtTelefone"));
 		c.setCelular(request.getParameter("txtCelular"));
 		c.setSexo(request.getParameter("cbSexo"));
+		c.setIdUsuario(Integer.parseInt(request.getParameter("txtIdUsuario")));
 
 		ContatoDAO contatoDAO = new ContatoDAO();
 		contatoDAO.setContato(c);

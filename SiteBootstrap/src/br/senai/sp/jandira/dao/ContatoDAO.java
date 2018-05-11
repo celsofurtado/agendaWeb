@@ -52,19 +52,20 @@ public class ContatoDAO {
 		this.contato = contato;
 	}
 
-	public ArrayList<Contato> getContatos(int limit, int pagina) {
+	public ArrayList<Contato> getContatos(int limit, int pagina, int idUsuario) {
 		
 		int offset = (pagina * limit) - limit;
 		
 		ArrayList<Contato> contatos = new ArrayList<>();
 
-		String sql = "SELECT * FROM contatos ORDER BY nome ASC LIMIT ? OFFSET ?";
+		String sql = "SELECT * FROM contatos WHERE idUsuario = ? ORDER BY nome ASC LIMIT ? OFFSET ?";
 		stm = null;
 
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
-			stm.setInt(1, limit);
-			stm.setInt(2, offset);
+			stm.setInt(1, idUsuario);
+			stm.setInt(2, limit);
+			stm.setInt(3, offset);
 			
 			rs = stm.executeQuery();
 
@@ -94,14 +95,15 @@ public class ContatoDAO {
 		return contatos;
 	}
 	
-	public int getPaginas(){
+	public int getPaginas(int idUsuario){
 		int registros = 0;
 		int paginas = 0;
 		
-		String sql = "SELECT COUNT(id) as totalRegistros FROM contatos";
+		String sql = "SELECT COUNT(id) as totalRegistros FROM contatos WHERE idUsuario = ?";
 		
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setInt(1, idUsuario);
 			
 			rs = stm.executeQuery();
 
@@ -128,7 +130,7 @@ public class ContatoDAO {
 	public void gravar() {
 
 		String sql = "INSERT INTO contatos (nome, dtNasc, email, " + "logradouro, bairro, cidade, "
-				+ "estado, cep, telefone, " + "celular, sexo) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "estado, cep, telefone, " + "celular, sexo, idUsuario) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
@@ -143,6 +145,7 @@ public class ContatoDAO {
 			stm.setString(9, contato.getTelefone());
 			stm.setString(10, contato.getCelular());
 			stm.setString(11, contato.getSexo());
+			stm.setInt(12, contato.getIdUsuario());
 			stm.execute();
 
 			Conexao.fecharConexao();

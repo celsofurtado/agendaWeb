@@ -86,11 +86,11 @@
 								<div class="form-group col-md-4">
 									<label for="cbEstado">Estado:</label> <select name="cbEstado"
 										class="form-control">
-										<option value="SS">Selecione</option>
-										<option value="SP">São Paulo</option>
-										<option value="RJ">Rio de Janeiro</option>
-										<option value="MG">Minas Gerais</option>
-										<option value="ES">Espirito Santo</option>
+										<option value="SS" <%=contato.getEstado().equals("SS") ? "selected" : "" %>>Selecione</option>
+										<option value="SP" <%=contato.getEstado().equals("SP") ? "selected" : "" %>>São Paulo</option>
+										<option value="RJ" <%=contato.getEstado().equals("RJ") ? "selected" : "" %>>Rio de Janeiro</option>
+										<option value="MG" <%=contato.getEstado().equals("MG") ? "selected" : "" %>>Minas Gerais</option>
+										<option value="ES" <%=contato.getEstado().equals("ES") ? "selected" : "" %>>Espirito Santo</option>
 									</select>
 								</div>
 								<div class="form-group col-md-2">

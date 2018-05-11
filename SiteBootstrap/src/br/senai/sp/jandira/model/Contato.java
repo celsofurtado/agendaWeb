@@ -14,6 +14,7 @@ public class Contato {
 	private String cep;
 	private String sexo;
 	private String dtNasc;
+	private int idUsuario;
 
 	public int getId() {
 		return id;
@@ -110,5 +111,15 @@ public class Contato {
 	public void setDtNasc(String dtNasc) {
 		this.dtNasc = dtNasc;
 	}
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	
+	
 
 }

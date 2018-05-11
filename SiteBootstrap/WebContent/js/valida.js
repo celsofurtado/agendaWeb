@@ -7,17 +7,25 @@
 	var erro_logradouro = document.getElementById("erro_logradouro");
 	
 	function validate(){
+		var valida = true;
 		if (nome.value == ""){
 			nome.style.border = "1px solid red";
 			erro_nome.textContent = " *";
 			nome.focus();
-			return false;
+			valida = false;
+		} else {
+			nome.style.border = "1px solid";
+			erro_nome.textContent = "";
+			valida = true;
 		}
 		
 		if (logradouro.value == ""){
 			logradouro.style.border = "1px solid red";
-			erro_logradouro.textContent = "*";
+			erro_logradouro.textContent = " *";
 			logradouro.focus();
-			return false;
+			valida = false;
 		}
+		
+		return valida;
+		
 	}
