@@ -10,6 +10,7 @@
 		var valida = true;
 		if (nome.value == ""){
 			nome.style.border = "1px solid red";
+			nome.style.background = "yellow";
 			erro_nome.textContent = " *";
 			nome.focus();
 			valida = false;

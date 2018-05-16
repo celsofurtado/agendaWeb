@@ -16,7 +16,7 @@ public class Conexao {
 			//Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			//String dbURL = "jdbc:ucanaccess:////10.107.134.23/banco/agenda.accdb";
 			//String dbURL = "jdbc:ucanaccess://Z:/PARTICULAR/sn1006137/JavaProjects/agendaWeb/SiteBootstrap/agenda.accdb";
-			String dbURL = "jdbc:mysql://10.107.134.3:3306/agenda";
+			String dbURL = "jdbc:mysql://10.107.134.3:3306/agenda?useSSL=false";
 			con = DriverManager.getConnection(dbURL, "root", "bcd127");
 		} catch (SQLException e) {
 			System.out.println("ERRO NA CONEXAO COM O BANCO...");

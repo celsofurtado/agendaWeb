@@ -31,8 +31,10 @@ public class AutenticaDAO {
 				usuario.setNome(rs.getString("nome"));
 				usuario.setEmail(rs.getString("email"));
 				usuario.setSenha(rs.getString("senha"));
+				usuario.setCidade(rs.getString("cidade"));
+				usuario.setDtNasc(rs.getString("dtNasc"));
+				usuario.setSenha(rs.getString("senha"));
 			}
-			
 			
 			Conexao.fecharConexao();
 			

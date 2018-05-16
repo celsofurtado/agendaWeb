@@ -6,6 +6,8 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	private String cidade;
+	private String dtNasc;
 
 	public int getId() {
 		return id;
@@ -38,5 +40,23 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getDtNasc() {
+		return dtNasc;
+	}
+
+	public void setDtNasc(String dtNasc) {
+		this.dtNasc = dtNasc;
+	}
+	
+	
 
 }

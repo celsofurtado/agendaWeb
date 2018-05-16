@@ -29,10 +29,10 @@
 								<label for="txtPassword">Senha:</label>
 								<input type="password" class="form-control" name="txtPassword" >
 							</div>
-							<div class="checkbox">
-								<a href="novo_usuario.jsp">Quero me cadastrar</a>
-							</div>
 							<button type="submit" style="position:relative;top:5px;" class="btn btn-success">Login</button>
+							<br><br><div class="checkbox">
+								Não tem cadastro? Cadastre-se <a href="novo_usuario.jsp">aqui</a>
+							</div>
 						</form>
 					</div>
 				</div>

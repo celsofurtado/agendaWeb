@@ -29,7 +29,7 @@
 							<div class="form-group col-md-6">
 								<input type="text" name="txtIdUsuario" value="<%=u.getId() %>" hidden="true">
 								<label for="txtNome">Nome:</label><span id="erro_nome" class="error_message"></span>
-								<input type="text" class="form-control" name="txtNome" placeholder="Digite o nome..." required="required">
+								<input type="text" class="form-control" name="txtNome" placeholder="Digite o nome...">
 							</div>
 							<div class="form-group col-md-3">
 								<label for="txtDtNasc">Dt. Nasc.:</label>

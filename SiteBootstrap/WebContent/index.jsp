@@ -45,7 +45,13 @@
 					contatos
 				</div>
 				<div class="panel-body">
-					<p>Página: <%= pagina %> </p>
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<% for (int pag = 1; pag <= paginas; pag++) { %>
+								<li><a <%=pag == pagina ? "style=\"background-color: #B0E0E6;\"" : "" %> href="index.jsp?pag=<%=pag%>"><%=pag%></a></li>
+							<% } %>
+						</ul>
+					</nav>
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -79,13 +85,8 @@
 						%>
 
 					</table>
-					<nav aria-label="Page navigation">
-						<ul class="pagination">
-							<% for (int pag = 1; pag <= paginas; pag++) { %>
-								<li><a <%=pag == pagina ? "style=\"background-color: #B0E0E6;\"" : "" %> href="index.jsp?pag=<%=pag%>"><%=pag%></a></li>
-							<% } %>
-						</ul>
-					</nav>
+					<hr>
+					
 				</div>
 			</div>
 		</div>
